@@ -52,3 +52,31 @@ npm install express
 ```
 
 Will install the dependency and add it to the package.json file. This is done by default with npm version 5.0.0 and above. So let's run that command.
+
+To shorten the command even more I found out we can just run:
+
+```bash
+npm i express
+```
+
+This will literally just do what we want without having to write the whole command or in this case the whole word ... `install`. xD
+
+# Entry Point
+
+In order to combine both the logic of the documentation and the logic learned in class I will do my best to mesh the two together. Our default entry point according to the documentation is `index.js`. But in class we learned that we can change this to `app.js`. So let's do that.
+
+In the `package.json` file we will change the `main` property to be `app.js`.
+
+```json
+"main": "app.js"
+```
+
+Let's create that file and populate it shall we?
+
+```bash
+touch app.js
+```
+
+```javascript
+
+```
