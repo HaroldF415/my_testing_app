@@ -135,6 +135,76 @@ app.get("/about", aboutHandler);
 module.exports = app;
 ```
 
+The `module.exports` line is used to export the `app` object so that it can be used in other files. This is done so that we can use the `app` object in our `app.js` file.
+
+## Middleware
+
+In `express.js` middleware are functions that can be executed before the final request handler callback is invoked. Middleware functions have access to the `request` and `response` objects. This means that they can perform operations on them, such as modifying request headers, processing data, handling errors, or even ending the request-response cycle.
+
+One thing to note about middleware is that they are executed in the order that they are defined. This is important to keep in mind when defining middleware functions. Each middleware function has the ability to modify the request and response objects. This means that middleware functions can perform the following tasks:
+
+- Execute any code.
+- Make changes to the request and the response objects.
+- End the request-response cycle.
+
+If the current middleware function does not end the request-response cycle, it must call `next()` to pass control to the next middleware function. Otherwise, the request will be left hanging.
+
+Without going to deep into this topic I will write an example of middleware functions:
+
+```js
+const express = require("express");
+const app = express();
+
+// middleware function that will log the current date and time
+const logDateTime = (req, res, next) => {
+  console.log(new Date());
+  next();
+};
+
+// middleware function that will log the user agent header
+const logUserAgent = (req, res, next) => {
+  console.log(req.headers["user-agent"]);
+  next();
+};
+
+// route handler
+const rootHandler = (req, res) => {
+  res.send("Hello World!");
+};
+
+// register the middleware functions
+app.use(logDateTime);
+app.use(logUserAgent);
+
+// register the route handler
+app.get("/", rootHandler);
+
+module.exports = app;
+```
+
+The code above defines two middleware functions called `logDateTime` and `logUserAgent`. These functions will log the current date and time and the user agent header respectively. The `logDateTime` function will call the `next()` function to pass control to the next middleware function. The `logUserAgent` function will also call the `next()` function to pass control to the next middleware function. In this case there is no next middleware function. So the request-response cycle will end.
+
+### Registering Middleware
+
+We register middleware functions by calling the `app.use()` function. The `app.use()` function can be called with a single argument. This argument can be a function or a path. If the argument is a function then the function will be registered as a middleware function. If the argument is a path then the function will be registered as a route handler.
+
+## Use of middleware
+
+When we start the server, we can see the middleware functions in action in the console. First is the `logDateTime` function and the next would be the `logUserAgent` function. The following is the output of the code above:
+
+```bash
+2020-05-31T20:00:00.000Z
+Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36
+```
+
+These would be outputed to the console when we visit the root route. The `logDateTime` function will log the current date and time. The `logUserAgent` function will log the user agent header.
+
+<br/>
+
+# We've deviated from the documentation tutorials long enough. Let's get back on track!
+
+<br/>
+
 # Hello World
 
 Let's start with the most basic of examples. We will create a simple `Hello World` app. This will be a great way to get started with Express.js.
