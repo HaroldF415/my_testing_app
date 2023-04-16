@@ -292,3 +292,21 @@ At this time this will not work. This is because this is a simple `Hello World` 
 ```bash
 npm i dotenv
 ```
+
+Now we can update our code to take advantage of this package we've installed. We will need to import the `dotenv` module into our `app.js` file. We can do this by writting the following line of code in our `app.js` file:
+
+```js
+require("dotenv").config();
+```
+
+The `require` function will import the `dotenv` module into our `app.js` file. The `config()` function will load the environment variables from the `.env` file into the `process.env` object.
+
+While checking my notes against `chatGPT` it mentioned that it is good practice to wrap the `require` function in a conditional statement. This is to prevent the `dotenv` module from being loaded in production. We can do this by writting the following code:
+
+```js
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
+```
+
+At this time this information even though it is insightful, it is not necessary at this moment where we are following the tutorials in the `express.js` documentation.
