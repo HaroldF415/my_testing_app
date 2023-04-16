@@ -84,3 +84,20 @@ node app.js
 ```
 
 The code stored in this file will define the routes and middleware for our application. The logic written in `app.js` will be the logic that will be executed when a user visits a specific route. It will handle different HTTP requests and return the appropriate responses.
+
+# Hello World
+
+Let's start with the most basic of examples. We will create a simple `Hello World` app. This will be a great way to get started with Express.js.
+
+First we will need to import the `express` module into our `app.js` file. The same `express` that we installed previously.
+
+We will do this by using the `require` function. We will also need to create an instance of the `express` module. We will do this by calling the `express` function.
+
+```js
+const express = require("express");
+const app = express();
+```
+
+The first line in the code above not only imports the `express.js` module but also assigns it to the variable `express`. This is done so we can use the `express` variable to call the `express` function.
+
+The second line creates an instance of the `express.js` module and assigns it to the variable `app`. This will allow us to use the `app` variable to call the methods of the `express.js` module. The `app` variable can also be described as an object that contains all the methods of the `express.js` module.
