@@ -85,6 +85,14 @@ node app.js
 
 The code stored in this file will define the routes and middleware for our application. The logic written in `app.js` will be the logic that will be executed when a user visits a specific route. It will handle different HTTP requests and return the appropriate responses.
 
+## PRO-TIP
+
+When creating a `.gitignore` file for any project and you want it filled with default values for a react-app which is what we've been working on you can use the following `npm` package:
+
+```bash
+npx react-gitignore
+```
+
 # Routes & Middleware
 
 Routes and middleware are two key concepts in `express.js` that are used to define the behavior of the application we are building.
