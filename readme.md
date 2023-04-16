@@ -516,3 +516,7 @@ app.get("/rocks", rocksHandler);
 // EXPORT
 module.exports = app;
 ```
+
+Now when we visit the `/rocks` route we will see the following:
+
+![rocks](./assests/route_rocks.png)
