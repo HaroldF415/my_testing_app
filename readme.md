@@ -237,3 +237,11 @@ The next thing we need to do is to define the port number that our server will l
 ```js
 const port = 3000;
 ```
+
+In class we've gone a step further and created a `.env` file to store our port number. This is a great way to keep our port number secure.
+
+We can do this by creating a `.env` file in the root directory of our project. We will then add the following line to the `.env` file:
+
+```bash
+PORT=3000
+```
