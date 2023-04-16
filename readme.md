@@ -91,7 +91,7 @@ The code stored in this file will define the routes and middleware for our appli
 
 <br/>
 
-### PRO-TIP
+### Pro-Tip
 
 When creating a `.gitignore` file for any project and you want it filled with default values for a react-app which is what we've been working on you can use the following `npm` package:
 
@@ -354,10 +354,22 @@ app.listen(port, () => {
 });
 ```
 
+<br/>
+
 ## Running the server
 
 There are two commands that can start running our server. The first command is `node app.js`. The second command is `nodemon app.js`. The `nodemon` command will start the server and will restart the server whenever a change is made to the code. The `node` command will only start the server once. We will use the `nodemon` command for this tutorial.
 
 ```bash
 nodemon app.js
+```
+
+<br/>
+
+### Pro-Tip
+
+Sometimes we may forget to kill the server correctly before putting the computer to sleep and the next time you try to start your server it says that something is already running on that port. To fix this we must first find the process to do this we can run the `ps` command (process status) combined with the `-A` flag (all). This will list all the processes that are currently running. We can then use the `grep` command (global regular expression print) to filter the results and search for nodemon specifically. We can do this by running the following command:
+
+```bash
+  ps -A | grep nodemon
 ```
