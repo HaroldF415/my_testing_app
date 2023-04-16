@@ -271,7 +271,13 @@ const port = 3000;
 
 In class we've gone a step further and created a `.env` file to store our port number. This is a great way to keep our port number secure.
 
-We can do this by creating a `.env` file in the root directory of our project. We will then add the following line to the `.env` file:
+We can do this by creating a `.env` file in the root directory of our project.
+
+```bash
+touch .env
+```
+
+We will then add the following line to the `.env` file:
 
 ```bash
 PORT=3000
@@ -280,6 +286,8 @@ PORT=3000
 <br/>
 
 ## Using the `.dotenv` npm package
+
+<br/>
 
 We can then access the port number by using the `process.env` object. The `process.env` object is a global object that contains all the environment variables as properties. We can access the port number by using the following code:
 
@@ -318,6 +326,8 @@ Now we can finally update our code to use the `process.env` object to access the
 ```js
 const port = process.env.PORT;
 ```
+
+<br/>
 
 So far I'm understanding the logic of the code that I'm writing. Right now I'm using different sources at the same time to get a better understanding of what I'm doing. I'm using the `express.js` documentation, the class notes, and the infamous `chatGPT` to double check my notes.
 
@@ -382,4 +392,69 @@ On the left of the image you should see the process id. In this case we are look
 
 ```bash
 kill 3682
+```
+
+<br/>
+
+# Separating Concerns
+
+In order to create maintainable, scalable, and testable applications, it's essential to separate concerns in our code. By dividing the application into smaller, specialized parts, we can better mannage complecity, isolate errors, and facilitate easier testing. In the context of `express.js` apps, this typically involves organizing the server setup, routing, middleware, and other logic into different files or modules.
+
+To achieve this separation of concerns, we can use the `node.js` modules. The `node.js` modules allow us to create reusable pieces of code that can be imported and exported between different files in our app. We can see a difference when we import an npm package like `express` where we can just call the `require` function and pass in the name of the package.
+
+First we must write `module.exports` and then we can assign the value to whatever we want to export. In this case we will export the `app` object. The following code will be written at the very end of our `app.js` file.
+
+```js
+module.exports = app;
+```
+
+This in turn will allow us to import the `app` object in our `server.js` file. We can do this by writting the following code:
+
+```js
+const express = require("express");
+```
+
+However, when we are importing code from our custom local files, we need to provide the relative path to the file.
+
+```js
+const app = require("./app");
+```
+
+<br/>
+
+In this application we will make use of two files:
+
+- `app.js`
+- `server.js`
+
+We already have the `app.js` file. So let's create the `server.js` file.
+
+```bash
+touch server.js
+```
+
+Now that we have both files let's define what both files will be in charge of.
+
+The `app.js` file will be in charge of the logic of the application. This includes the route handlers, the middleware, and the database connection.
+
+The `server.js` file will be in charge of the server setup. This includes the server setup, the server start, and the server shutdown. p.s. in class we have not covered the server shutdown. So we will not be covering it just yet.
+
+The following code will live in the `server.js` file:
+
+```js
+require("dotenv").config();
+
+const app = require("./app");
+
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log(`Server started on PORT ${PORT}`);
+});
+```
+
+We must also update our `package.json` file to include the `server.js` file as the entry point of our application. We can do this by updating the `start` script to the following:
+
+```json
+"start": "server.js"
 ```
