@@ -353,3 +353,11 @@ app.listen(port, () => {
   console.log(`Server started on port ${port}`);
 });
 ```
+
+## Running the server
+
+There are two commands that can start running our server. The first command is `node app.js`. The second command is `nodemon app.js`. The `nodemon` command will start the server and will restart the server whenever a change is made to the code. The `node` command will only start the server once. We will use the `nodemon` command for this tutorial.
+
+```bash
+nodemon app.js
+```
