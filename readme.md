@@ -4,6 +4,8 @@ This app will help me take a deeper look into the Express.js framework. I will b
 
 The documentation can be found here: https://expressjs.com/en/starter/installing.html
 
+<br/>
+
 ## Installation
 
 ```bash
@@ -61,6 +63,8 @@ npm i express
 
 This will literally just do what we want without having to write the whole command or in this case the whole word ... `install`. xD
 
+<br/>
+
 # Entry Point
 
 In order to combine both the logic of the documentation and the logic learned in class I will do my best to mesh the two together. Our default entry point according to the documentation is `index.js`. But in class we learned that we can change this to `app.js`. So let's do that.
@@ -85,7 +89,9 @@ node app.js
 
 The code stored in this file will define the routes and middleware for our application. The logic written in `app.js` will be the logic that will be executed when a user visits a specific route. It will handle different HTTP requests and return the appropriate responses.
 
-## PRO-TIP
+<br/>
+
+### PRO-TIP
 
 When creating a `.gitignore` file for any project and you want it filled with default values for a react-app which is what we've been working on you can use the following `npm` package:
 
@@ -93,9 +99,15 @@ When creating a `.gitignore` file for any project and you want it filled with de
 npx react-gitignore
 ```
 
+<br/>
+<br/>
+<br/>
+
 # Routes & Middleware
 
 Routes and middleware are two key concepts in `express.js` that are used to define the behavior of the application we are building.
+
+<br/>
 
 ## Routes
 
@@ -121,7 +133,11 @@ const homeHandler = (req, res) => {
 app.get("/", homeHandler);
 ```
 
+<br/>
+
 Furthermore to keep code organized we can use the `express.Router()` class to create modular, mountable route handlers. A Router instance is a complete middleware and routing system; for this reason, it is often referred to as a `mini-app`. At this point in time I feel that this is a bit too much for me to understand. So I will continue to follow the documentation and come back to this later.
+
+<br/>
 
 The following code creates a simple `app` that will respond with `Hello World!` to GET requests to the root route, and `About me` to GET requests to the `/about` route:
 
@@ -143,7 +159,11 @@ app.get("/about", aboutHandler);
 module.exports = app;
 ```
 
+<br/>
+
 The `module.exports` line is used to export the `app` object so that it can be used in other files. This is done so that we can use the `app` object in our `app.js` file.
+
+<br/>
 
 ## Middleware
 
@@ -156,6 +176,8 @@ One thing to note about middleware is that they are executed in the order that t
 - End the request-response cycle.
 
 If the current middleware function does not end the request-response cycle, it must call `next()` to pass control to the next middleware function. Otherwise, the request will be left hanging.
+
+<br/>
 
 Without going to deep into this topic I will write an example of middleware functions:
 
@@ -190,11 +212,17 @@ app.get("/", rootHandler);
 module.exports = app;
 ```
 
+<br/>
+
 The code above defines two middleware functions called `logDateTime` and `logUserAgent`. These functions will log the current date and time and the user agent header respectively. The `logDateTime` function will call the `next()` function to pass control to the next middleware function. The `logUserAgent` function will also call the `next()` function to pass control to the next middleware function. In this case there is no next middleware function. So the request-response cycle will end.
+
+<br/>
 
 ### Registering Middleware
 
 We register middleware functions by calling the `app.use()` function. The `app.use()` function can be called with a single argument. This argument can be a function or a path. If the argument is a function then the function will be registered as a middleware function. If the argument is a path then the function will be registered as a route handler.
+
+<br/>
 
 ## Use of middleware
 
@@ -202,6 +230,7 @@ When we start the server, we can see the middleware functions in action in the c
 
 ```bash
 2020-05-31T20:00:00.000Z
+
 Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36
 ```
 
@@ -230,6 +259,8 @@ The first line in the code above not only imports the `express.js` module but al
 
 The second line creates an instance of the `express.js` module and assigns it to the variable `app`. This will allow us to use the `app` variable to call the methods of the `express.js` module. The `app` variable can also be described as an object that contains all the methods of the `express.js` module.
 
+<br/>
+ 
 ## Port Number
 
 The next thing we need to do is to define the port number that our server will listen on. We will do this by creating a variable called `port` and assigning it the value `3000`.
@@ -244,4 +275,20 @@ We can do this by creating a `.env` file in the root directory of our project. W
 
 ```bash
 PORT=3000
+```
+
+<br/>
+
+## Using the `.dotenv` npm package
+
+We can then access the port number by using the `process.env` object. The `process.env` object is a global object that contains all the environment variables as properties. We can access the port number by using the following code:
+
+```js
+const port = process.env.PORT;
+```
+
+At this time this will not work. This is because this is a simple `Hello World` app. We will need to install the `dotenv` module to make this work. We can do this by running the following command in the terminal:
+
+```bash
+npm i dotenv
 ```
