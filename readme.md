@@ -373,3 +373,7 @@ Sometimes we may forget to kill the server correctly before putting the computer
 ```bash
   ps -A | grep nodemon
 ```
+
+If `nodemon` is running, you should see something like this:
+
+![nodemon_process](./assests/nodemon_process.png)
