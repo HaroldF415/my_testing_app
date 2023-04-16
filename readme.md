@@ -526,3 +526,42 @@ module.exports = app;
 Now when we visit the `/rocks` route we will see the following:
 
 ![rocks](./assests/route_rocks.png)
+
+<br/>
+
+## Keeping it DRY
+
+What if we wanted to show each rock? We could create a new route handler and a new route. However, this would be very repetitive and not very DRY. We can use a route parameter to make this more dynamic. A route parameter is a variable that we can use to capture the value of a segment of the request URL. We can then use this value to perform some logic or to access some data.
+
+In our case we will use the route parameter to access the index of the rock we want to show. We can do this by adding a colon in front of the name of the route parameter. In this case we will call it `index`.
+
+```js
+const rocksHandler = (req, res) => {
+  res.send(req.params);
+};
+app.get("/rocks/:index", rocksHandler);
+```
+
+if we visit the `https://localhost:3000/rocks/0` route we will see the following:
+
+<img src="./assets/route_rocks_0.png" alt="rocks_index" width="50%">
+
+But this is not what we want. What we want is the string of the rock at the index of 0. We can do this by using the `req.params` object. Which is as we can see in the above image just this at the moment:
+
+```js
+{
+  index: "0";
+}
+```
+
+We can access the value of the `index` key by using the following code:
+
+```js
+app.get("/rocks/:index", (req, res) => {
+  res.send(rocks[req.params.index]);
+});
+```
+
+Now when we visit the `https://localhost:3000/rocks/0` route we will see the following:
+
+<img src="./assets/route_rocks_0_updated.png" alt="rocks_index" width="50%">

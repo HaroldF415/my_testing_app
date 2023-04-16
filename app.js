@@ -11,12 +11,12 @@ const rootHandler = (req, res) => {
 };
 
 const rocksHandler = (req, res) => {
-  res.json(rocks);
+  res.send(rocks[req.params.index]);
 };
 
 // ROUTES
 app.get("/", rootHandler);
-app.get("/rocks", rocksHandler);
+app.get("/rocks/:index", rocksHandler);
 
 // EXPORT
 module.exports = app;
