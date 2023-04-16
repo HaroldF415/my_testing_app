@@ -469,13 +469,17 @@ Separation of concerns in our code is a very important concept to understand. It
 
 I have decided to move from the tutorials and mesh what is being learned in class so from here on out we will be learning about the concepts that are being taught in class.
 
+<br/>
+
 ## Building an App
 
 Our instructor's concern is to help us learn `express.js`. Later we will dive into databases and how to integrate a database into our express app.
 
 Right now we will be using mock data like an array to help us learn the fundamentals of `express.js`.
 
-## Creating a Mock Data
+<br/>
+
+## Creating Mock Data
 
 ```bash
 mkdir models
@@ -485,7 +489,9 @@ touch models/rock.js
 Inside our `rock.js` file we will create an array of strings. Each object will represent a rock. The following code will be written in the `rock.js` file:
 
 ```js
-module.exports = ["Crocoite", "Wulfenite", "Amber", "Malachite", "Azurite", "Amethyst"];
+const rocks = ["Crocoite", "Wulfenite", "Amber", "Malachite", "Azurite", "Amethyst"];
+
+module.exports = rocks;
 ```
 
 At this point to make use of our mock data about rocks we will need to require it in our `app.js` file where we are writing out our logic for this app.
