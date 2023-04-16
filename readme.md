@@ -318,3 +318,36 @@ Now we can finally update our code to use the `process.env` object to access the
 ```js
 const port = process.env.PORT;
 ```
+
+So far I'm understanding the logic of the code that I'm writing. Right now I'm using different sources at the same time to get a better understanding of what I'm doing. I'm using the `express.js` documentation, the class notes, and the infamous `chatGPT` to double check my notes.
+
+Our code should look something like this right now:
+
+```js
+require("dotenv").config();
+
+const express = require("express");
+const app = express();
+
+const PORT = process.env.PORT || 3000;
+```
+
+<br/>
+
+## Route Handler
+
+The next thing we need to do is to create a route handler. We will do this by calling the `app.get()` function. The `app.get()` function takes two arguments. The first argument is the path. The second argument is the route handler. The route handler is a function that will be called when the path is requested. I like to keep my code clean and organized. So I will create a separate function for the route handler. I will call this function `rootHandler`. The `rootHandler` function will take two arguments. The first argument is the `request` object. The second argument is the `response` object. The `request` object contains all the information about the request. The `response` object contains all the methods to send a response to the client.
+
+```js
+const rootHandler = (req, res) => {
+  res.send("Hello World!");
+};
+
+app.get("/", rootHandler);
+```
+
+````
+
+
+```js
+````
