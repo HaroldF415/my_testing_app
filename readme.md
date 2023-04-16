@@ -32,5 +32,23 @@ For the purposes of class we will declare the main file as `app.js`. But let's c
 The next step is to install `express.js` into our project. We can easily accomplish this by running the command below:
 
 ```bash
-
+npm install express --save
 ```
+
+In the command above we see a different flag: `--save`.
+
+The `--save` flag will add the dependency to the package.json file. This will allow us to easily install all the dependencies for a project when we clone it down from GitHub in the future in another directory.
+
+The documentation also specifies another command if we wish to install `express.js` temporarily:
+
+```bash
+npm install express --no-save
+```
+
+Upon reading the fine print in the documentation it states that just running the command:
+
+```bash
+npm install express
+```
+
+Will install the dependency and add it to the package.json file. This is done by default with npm version 5.0.0 and above. So let's run that command.
