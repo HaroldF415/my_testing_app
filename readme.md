@@ -71,12 +71,16 @@ In the `package.json` file we will change the `main` property to be `app.js`.
 "main": "app.js"
 ```
 
-Let's create that file and populate it shall we?
+Let's create that file:
 
 ```bash
 touch app.js
 ```
 
-```javascript
+Creating an entry point file called `app.js` will allow the app we are creating to execute the code in that file when we run the command:
 
+```bash
+node app.js
 ```
+
+The code stored in this file will define the routes and middleware for our application. The logic written in `app.js` will be the logic that will be executed when a user visits a specific route. It will handle different HTTP requests and return the appropriate responses.
