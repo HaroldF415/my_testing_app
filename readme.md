@@ -565,3 +565,38 @@ app.get("/rocks/:index", (req, res) => {
 Now when we visit the `https://localhost:3000/rocks/0` route we will see the following:
 
 <img src="./assets/route_rocks_0_updated.png" alt="rocks_index" width="50%">
+
+## A Common Error
+
+The HTTP protocol enforces a rule that for each request, there can only be one response. If you attemp to send multiple responses for a single request, you will encounter and error. The example below will violate that rule:
+
+```js
+app.get("/rocks/:index", (req, res) => {
+  res.send(rocks[req.params.index]);
+
+  // cannot send more than one response
+  res.send("Hello World");
+});
+```
+
+you will get the following error:
+
+```bash
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+```
+
+However, you can send different responses based on conditions using control structures like `if` statements. This will allow us send only one response per request, depending on the situation:
+
+```js
+app.get("/rocks/:index", (req, res) => {
+  if (rocks[req.params.index]) {
+    res.send(rocks[req.params.index]);
+  } else {
+    res.send("Sorry, that rock does not exist");
+  }
+});
+```
+
+In the corrected example, we are using and `if` statement to check if the rock at the index of `req.params.index` exists. If it does we will send the rock. If it does not we will send a message saying that the rock does not exist. This ensures that we are only sending one response per request, adhering to the HTTP protocol's rule.
+
+It is essential to remember that we can only send one response for each request, as required by the HTTP protocol. Using control structures like `if` statements can help us achieve this while still providing the desired functionality.
