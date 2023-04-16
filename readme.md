@@ -388,7 +388,7 @@ Sometimes we may forget to kill the server correctly before putting the computer
 
 If `nodemon` is running, you should see something like this:
 
-![nodemon_process](./assests/nodemon_process.png)
+![nodemon_process](./assets/nodemon_process.png)
 
 On the left of the image you should see the process id. In this case we are looking at the line right underneath our command. The process id is `3682`. We can then use the `kill` command to kill the process. We can do this by running the following command:
 
@@ -525,7 +525,7 @@ module.exports = app;
 
 Now when we visit the `/rocks` route we will see the following:
 
-![rocks](./assests/route_rocks.png)
+![rocks](./assets/route_rocks.png)
 
 <br/>
 
