@@ -18,3 +18,19 @@ npm init -y
 ```
 
 This command will create a package.json file. This file will contain all the dependencies for the project. The -y flag will skip the prompts and just create the file.
+
+The only difference I see from this command and the one used in class is that in class we use:
+
+```bash
+npm init
+```
+
+This command will prompt you for the information needed to create the package.json file. The command used in class does allow you to designate a `main` file, as opposed to when we use the `-y` flag. Which defaults main to be `index.js`.
+
+For the purposes of class we will declare the main file as `app.js`. But let's continue with the `express.js` documentation.
+
+The next step is to install `express.js` into our project. We can easily accomplish this by running the command below:
+
+```bash
+
+```
