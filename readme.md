@@ -310,3 +310,11 @@ if (process.env.NODE_ENV !== "production") {
 ```
 
 At this time this information even though it is insightful, it is not necessary at this moment where we are following the tutorials in the `express.js` documentation.
+
+<br/>
+
+Now we can finally update our code to use the `process.env` object to access the port number. We can do this by writting the following code:
+
+```js
+const port = process.env.PORT;
+```
