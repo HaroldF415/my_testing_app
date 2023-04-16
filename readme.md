@@ -600,3 +600,37 @@ app.get("/rocks/:index", (req, res) => {
 In the corrected example, we are using and `if` statement to check if the rock at the index of `req.params.index` exists. If it does we will send the rock. If it does not we will send a message saying that the rock does not exist. This ensures that we are only sending one response per request, adhering to the HTTP protocol's rule.
 
 It is essential to remember that we can only send one response for each request, as required by the HTTP protocol. Using control structures like `if` statements can help us achieve this while still providing the desired functionality.
+
+## Ordering Routes Correctly
+
+`express.js` processes routes in the order they are defined in your `app.js` file, attempting to match the requested URL with the routes sequentially. This means that the order in which you define your routes is important, as it can impact the behaviour of your application.
+
+Consider the following example where we have these routes in the given order:
+
+```js
+// INCORRECT ORDER
+app.get("/rocks/:index", (req, res) => {
+  res.send("This is a rock");
+});
+
+app.get("/rocks", (req, res) => {
+  res.send("This is a list of rocks");
+});
+```
+
+In this case, when the user tries to access `/rocks`, the first route will match and the response will be `This is a rock`. This is because the `:index` route parameter will match any value, including `rocks` or even an empty string. The `/rocks` route will never be triggered in this scenario, as `express.js` processess the routes sequentially and will stop at the first match.
+
+To resolve this issue we should place more specific routes before the more generic ones:
+
+```js
+// FIXED ORDER
+app.get("/rocks", (req, res) => {
+  res.send("This is a list of rocks");
+});
+
+app.get("/rocks/:index", (req, res) => {
+  res.send("This is a rock");
+});
+```
+
+Now when a user requests `/rocks`, Express.js will first try to match the route with the more specific route, and only if that fails will it try to match the route with the more generic route. By organizing our routes from more specific to more generic, we can ensure that the correct route is triggered for each request. This will lead to more predictable and accurate app behaviour.
