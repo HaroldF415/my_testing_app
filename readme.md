@@ -85,6 +85,56 @@ node app.js
 
 The code stored in this file will define the routes and middleware for our application. The logic written in `app.js` will be the logic that will be executed when a user visits a specific route. It will handle different HTTP requests and return the appropriate responses.
 
+# Routes & Middleware
+
+Routes and middleware are two key concepts in `express.js` that are used to define the behavior of the application we are building.
+
+## Routes
+
+Routes are used to define how the application will respond to HTTP requests. A route is defined using the `app.METHOD()` syntax, where the `METHOD` is the HTTP request method, in lowercase. The following code is an example of a route that will respond with `Hello World!` to GET requests to the root route, or `/`:
+
+```js
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
+```
+
+The first argument of the `app.get()` function is the path of the route. In this case it would be the `home` path defined by `/`. The second argument is the callback function that will be executed when the `home` route is matched.
+
+The callback function takes two arguments: `req` and `res`. The `req` argument represents the HTTP request and has properties for the request query string, parameters, body, HTTP headers, and so on. The `res` argument represents the HTTP response that the Express app will send when it receives an HTTP request.
+
+Since the second argument of the `app.get()` function is a callback function we can also create a separate function to handle the request and response. This will allow us to keep our code organized and clean.
+
+```js
+const homeHandler = (req, res) => {
+  res.send("Hello World!");
+};
+
+app.get("/", homeHandler);
+```
+
+Furthermore to keep code organized we can use the `express.Router()` class to create modular, mountable route handlers. A Router instance is a complete middleware and routing system; for this reason, it is often referred to as a `mini-app`. At this point in time I feel that this is a bit too much for me to understand. So I will continue to follow the documentation and come back to this later.
+
+The following code creates a simple `app` that will respond with `Hello World!` to GET requests to the root route, and `About me` to GET requests to the `/about` route:
+
+```js
+const express = require("express");
+const app = express();
+
+const homeHandler = (req, res) => {
+  res.send("Hello World!");
+
+const aboutHandler = (req, res) => {
+  res.send("About me");
+};
+
+app.get("/", homeHandler);
+
+app.get("/about", aboutHandler);
+
+module.exports = app;
+```
+
 # Hello World
 
 Let's start with the most basic of examples. We will create a simple `Hello World` app. This will be a great way to get started with Express.js.
