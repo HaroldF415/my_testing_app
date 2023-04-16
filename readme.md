@@ -103,7 +103,9 @@ npx react-gitignore
 <br/>
 <br/>
 
-# Routes & Middleware
+# Responses
+
+## Routes & Middleware
 
 Routes and middleware are two key concepts in `express.js` that are used to define the behavior of the application we are building.
 
@@ -396,7 +398,9 @@ kill 3682
 
 <br/>
 
-# Separating Concerns
+# Requests
+
+## Separating Concerns
 
 In order to create maintainable, scalable, and testable applications, it's essential to separate concerns in our code. By dividing the application into smaller, specialized parts, we can better mannage complecity, isolate errors, and facilitate easier testing. In the context of `express.js` apps, this typically involves organizing the server setup, routing, middleware, and other logic into different files or modules.
 
@@ -462,3 +466,53 @@ We must also update our `package.json` file to include the `server.js` file as t
 By doing all of this, we can access the exported contents of `app.js` in the `server.js` file. This allows us to keep the server setup and the application logic separate, therefore making it easier to manage and test our code. Keeping it clean!
 
 Separation of concerns in our code is a very important concept to understand. It will help us write better code and make our code easier to maintain. By organizing our code into smaller, specialized modules, we can better manage complexity, isolate errors, and greatly enhance the maintainability, scalability, and testability of our applications.
+
+I have decided to move from the tutorials and mesh what is being learned in class so from here on out we will be learning about the concepts that are being taught in class.
+
+## Building an App
+
+Our instructor's concern is to help us learn `express.js`. Later we will dive into databases and how to integrate a database into our express app.
+
+Right now we will be using mock data like an array to help us learn the fundamentals of `express.js`.
+
+## Creating a Mock Data
+
+```bash
+mkdir models
+touch models/rock.js
+```
+
+Inside our `rock.js` file we will create an array of strings. Each object will represent a rock. The following code will be written in the `rock.js` file:
+
+```js
+module.exports = ["Crocoite", "Wulfenite", "Amber", "Malachite", "Azurite", "Amethyst"];
+```
+
+At this point to make use of our mock data about rocks we will need to require it in our `app.js` file where we are writing out our logic for this app.
+
+Our `app.js` file should look like this:
+
+```js
+// DEPENDENCIES
+const express = require("express");
+const rocks = require("./models/rocks");
+
+// CONFIGURATION
+const app = express();
+
+// ROUTE HANDLERS
+const rootHandler = (req, res) => {
+  res.send("Hello World");
+};
+
+const rocksHandler = (req, res) => {
+  res.json(rocks);
+};
+
+// ROUTES
+app.get("/", rootHandler);
+app.get("/rocks", rocksHandler);
+
+// EXPORT
+module.exports = app;
+```
