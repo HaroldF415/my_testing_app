@@ -346,8 +346,10 @@ const rootHandler = (req, res) => {
 app.get("/", rootHandler);
 ```
 
-````
-
+After this we can start the server by calling the `app.listen()` function. The `app.listen()` function takes two arguments. The first argument is the port number. The second argument is a callback function. The callback function will be called when the server is started.
 
 ```js
-````
+app.listen(port, () => {
+  console.log(`Server started on port ${port}`);
+});
+```
