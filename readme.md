@@ -654,3 +654,56 @@ This will result in the following output:
 <img src="./assets/multipleParameters.png" alt="rocks_index" width="50%">
 
 As you can see above we can access/define multiple route parameters by separating them with a `/` and `:`. We can then access the values of each parameter by using the `req.params` object.
+
+Using multiple parameters in a route allows you to create more specific routes that can handle a wider range of requests. It also makes it easier to extract relevant information from the URL and use it to generate dynamic content.
+
+<br/>
+
+## Query Parameters
+
+Query parameters or strings are a useful method for passing values in the URL, often used to provide additional data or filter results. They appear at the end of a path, starting with a question mark `?`, and consist of key-value pairs with the syntax `key=value`. Multiple key-value pairs can be included in the URL and are separated by an ampersand `&`.
+
+Consider the following example:
+
+```js
+const calulatorQueryHandler = (req, res) => {
+  const { num1, num2 } = req.query;
+  const sum = Number(num1) + Number(num2);
+  res.send(`The sum of ${num1} and ${num2} is ${sum}`);
+};
+
+app.get("/calculator/add?num1=5&num2=4", calulatorQueryHandler);
+```
+
+We have to understant that the query parameters are not part of the route. They are part of the URL. So we can access them using the `req.query` object. We can then use the values of the query parameters to perform some calculations and send the result back to the user. In the above example we are adding two numbers together and sending the result back to the user. But before making the calculation we have to convert the values of the query parameters to numbers using the `Number()` function. This is because the values of the query parameters are always strings.
+
+We can further expand on this example to take into account the operation that must be made with these two numbers. We can do this by adding a new route parameter to the route and change our logic a bit in our handler function to compensate for the operation that needs to be executed:
+
+```js
+const calculationHandler = (req, res) => {
+  // extract the values of the query parameters
+  const { num1, num2 } = req.query;
+
+  // declare a variable to store the result of the calculation
+  let result = 0;
+
+  // extract the operation from the route parameters
+  const { operator } = req.params;
+
+  // perform the calculation based on the operation
+  if (operator === "add") {
+    result = Number(num1) + Number(num2);
+  } else if (operator === "subtract") {
+    result = Number(num1) - Number(num2);
+  } else if (operator === "multiply") {
+    result = Number(num1) * Number(num2);
+  } else if (operator === "divide") {
+    result = Number(num1) / Number(num2);
+  }
+
+  // send the result back to the user
+  res.send(`The result of ${num1} ${operator} ${num2} is ${result}`);
+};
+
+app.use("/calculator/:operation", calculationHandler);
+```
