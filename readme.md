@@ -707,3 +707,7 @@ const calculationHandler = (req, res) => {
 
 app.use("/calculator/:operation", calculationHandler);
 ```
+
+The enhanced example above allows us to perform different calculations based on the operation that is passed in the route parameters. We can now access the operation using the `req.params` object and use it to perform the correct calculation. We can then send the result back to the user.
+
+Query parameters provide a powerful way to pass additional data or filter information through URLs. By parsing and converting these values as needed, you can create dynamic and adaptable endpoints that handle a wide range of use cases.
