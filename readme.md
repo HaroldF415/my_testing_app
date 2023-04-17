@@ -711,3 +711,58 @@ app.use("/calculator/:operation", calculationHandler);
 The enhanced example above allows us to perform different calculations based on the operation that is passed in the route parameters. We can now access the operation using the `req.params` object and use it to perform the correct calculation. We can then send the result back to the user.
 
 Query parameters provide a powerful way to pass additional data or filter information through URLs. By parsing and converting these values as needed, you can create dynamic and adaptable endpoints that handle a wide range of use cases.
+
+<br/>
+
+# Dynamic Web Content with Express.js
+
+In modern web development, websites like Etsy need to generate dynamic web pages based on user-provided data, like when a shop owner adds a new product. Rather than manually creating each page, developers utilize templates and data-driven techniques to generate content automatically. `express.js`, combined with templating engines, can achieve this functionality.
+
+The following is some data that will be submitted by the user and the browser will send a `request` to a server. The server will then process the `request` and send a `response` back to the browser. The browser will then render the `response` and display it to the user.
+
+```json
+{
+  "name": "John Doe",
+  "age": 30,
+  "hobbies": ["music", "movies", "sports"],
+  "address": {
+    "street": "50 Main st",
+    "city": "Boston",
+    "state": "MA"
+  }
+}
+```
+
+<br/>
+
+Then the server will `respond` with confirmation that the `request` went through successfully or it will provide and error message.
+
+When the owner of the website wishes to see the data that was submitted by the user, the server will `respond` with the data that was submitted by the user. Like this:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>John Doe</h1>
+    <ul>
+      <li>Age: 30</li>
+      <li>Hobbies: music, movies, sports</li>
+      <li>Address: 50 Main st, Boston, MA</li>
+    </ul>
+  </body>
+</html>
+```
+
+There are four main things to do with the data that was submitted by the user:
+
+- Create
+- Read
+- Update
+- Delete
+
+These four things are called `CRUD` operations. `CRUD` operations are the basic functions of persistent storage. `CRUD` is an acronym that comes from the world of computer programming and refers to the four functions that are considered necessary to implement a persistent storage application.
