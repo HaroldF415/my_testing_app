@@ -634,3 +634,23 @@ app.get("/rocks/:index", (req, res) => {
 ```
 
 Now when a user requests `/rocks`, Express.js will first try to match the route with the more specific route, and only if that fails will it try to match the route with the more generic route. By organizing our routes from more specific to more generic, we can ensure that the correct route is triggered for each request. This will lead to more predictable and accurate app behaviour.
+
+<br/>
+
+## Multiple Route Parameters
+
+When dealing with multiple route parameters, we can use the `req.params` object to access the values of each parameter. Consider the following example:
+
+```js
+const multipleParamsHandler = (req, res) => {
+  res.send(req.params);
+};
+
+app.get("/rocks/:index/:name", multipleParamsHandler);
+```
+
+This will result in the following output:
+
+<img src="./assets/multipleParameters.png" alt="rocks_index" width="50%">
+
+As you can see above we can access/define multiple route parameters by separating them with a `/` and `:`. We can then access the values of each parameter by using the `req.params` object.
