@@ -766,3 +766,15 @@ There are four main things to do with the data that was submitted by the user:
 - Delete
 
 These four things are called `CRUD` operations. `CRUD` operations are the basic functions of persistent storage. `CRUD` is an acronym that comes from the world of computer programming and refers to the four functions that are considered necessary to implement a persistent storage application.
+
+<br/>
+
+# Software Architecture: MVC [ Model View Controller ]
+
+In software engineering, `MVC` is a software architecture pattern that separates an application into three main logical components: the `model`, the `view`, and the `controller`. Each of these components are built to handle specific development aspects of an application.
+
+The architecture of a software system is like the blueprint of a building. It serves as a plan for the system and the project, helping project management and developers figure out the tasks that need to be done by the teams and people involved.
+
+Software architecture is about making important structural decisions that are hard to change once they're in place. These choices involve picking specific design options for the software.
+
+For example, the systems controlling the Space Shuttle needed to be very fast and reliable. So, a suitable real-time computing language had to be chosen. To make sure the systems was reliable, they could decide to use multiple copies of the program, running on separate hardware and checking results with each other. This is called `fault tolerance`.
