@@ -778,3 +778,11 @@ The architecture of a software system is like the blueprint of a building. It se
 Software architecture is about making important structural decisions that are hard to change once they're in place. These choices involve picking specific design options for the software.
 
 For example, the systems controlling the Space Shuttle needed to be very fast and reliable. So, a suitable real-time computing language had to be chosen. To make sure the systems was reliable, they could decide to use multiple copies of the program, running on separate hardware and checking results with each other. This is called `fault tolerance`.
+
+Following this pattern allows developers to separate the concerns of the data. The `model` is responsible for managing the data of the application. The `view` is responsible for displaying the data to the user. The `controller` is responsible for handling user input and performing interactions on the data model objects. A pattern is a recommendation, not a rule.
+
+In our class we will be learning to keep our code organized in two different folders one of them being the `models` folder and the other being the `controllers` folder. The `models` folder will contain all of our data and the `controllers` folder will contain all of our functions that will be used to manipulate the data.
+
+### Pro-Tip
+
+With `Express.js`, we can name our files and folders whatever we want. However, no one will understand how your code is organized with names that don't make sense/are not semantic.
