@@ -925,31 +925,51 @@ Please note that the specifics mentioned in the table are just a few examples. E
 
 <hr />
 
-While Google Sheets can hold hundreds or thousands of records, it isn't designed to hold millions or billions of records, like those found in massive databases ( for example, a database containing all the users of Facebook ). Spreadsheet applications like Google Sheets or Microsoft Excel are great for organizing and analyzing relatively small amounts of data, but they lack the performance, scalability, and advanced features needed to manage large-scale datasets.
+While Google Sheets can hold hundreds or thousands of records, it isn't designed to hold millions or billions of records, like those found in massive databases (for example, a database containing all the users of Facebook). Spreadsheet applications like Google Sheets or Microsoft Excel are great for organizing and analyzing relatively small amounts of data, but they lack the performance, scalability, and advanced features needed to manage large-scale datasets.
 
-Databases, especially relational databases, are built to efficiently handle large-scale data storage and management. They use a schema to define the structure of the data, and they can create relationships between different data sets (tables), enabling us to organize and link data in a structured way. These relationships, known as foreign key constraints, allow us to perform powerful operations, such as joining tables, filtering, and aggregating data from multiple sources.
+Databases, especially relational databases, are built to efficiently handle large-scale data storage and management. They use a schema to define the structure of the data and can create relationships between different data sets (tables), enabling the organization and linkage of data in a structured way. These relationships, known as foreign key constraints, allow powerful operations, such as joining tables, filtering, and aggregating data from multiple sources.
 
-In addition, databases offer several other advantages over spreadsheets, including:
+In addition, databases offer several advantages over spreadsheets, including:
 
-1. Concurrency Control - Databses can handle multiple users accessing and updating data simultaneously, without compromising the integrity of the data.
+1. Concurrency Control - Databases can handle multiple users accessing and updating data simultaneously without compromising data integrity.
 
-2. Data Integrity - Databases can enforce data integrity constraints, such as data types, uniqueness, and foreign key relationships, to ensure that the data is accurate and consistent.
+2. Data Integrity - Databases enforce data integrity constraints, such as data types, uniqueness, and foreign key relationships, ensuring data accuracy and consistency.
 
 3. Security - Databases provide robust access controls and security mechanisms, protecting sensitive data from unauthorized access or manipulation.
 
-4. Backup and Recovery - Databases offer built-in tools for data backup and revovery, ensuring data safety and minimizing the risk of data loss.
+4. Backup and Recovery - Databases offer built-in tools for data backup and recovery, ensuring data safety and minimizing the risk of data loss.
 
 5. Query Optimization - Databases use advanced algorithms and indexing techniques to optimize query performance, enabling fast data retrieval even with complex queries and large data sets.
 
-Our instructors have advised us that in this program we will be using PostgreSQL, a powerful open-source relational database management system (RDBMS). PostgreSQL is a popular choice for many applications, including web and mobile apps, data analytics, and geospatial applications. It is also highly extensible, with support for advanced data types, custom functions, and procedural languages.
+In this program, we will be using PostgreSQL, a powerful open-source relational database management system (RDBMS). PostgreSQL is a popular choice for many applications, including web and mobile apps, data analytics, and geospatial applications. It is highly extensible, with support for advanced data types, custom functions, and procedural languages.
 
-PostgreSQL has its roots in the University of California, Berkeley. It is a successor to the the Ingres database, which was developed at Berkeley in the 1970s. PostgreSQL was developed as a separate project, starting in 1982, under the name "Postgres." It was later renamed to "PostgreSQL" to emphasize its support for SQL. PostgreSQL is now maintained by the PostgreSQL Global Development Group, a diverse group of companies and individual contributors.
+PostgreSQL has its roots in the University of California, Berkeley. It is a successor to the Ingres database, developed at Berkeley in the 1970s. PostgreSQL was developed as a separate project, starting in 1982, under the name "Postgres." It was later renamed to "PostgreSQL" to emphasize its support for SQL. PostgreSQL is now maintained by the PostgreSQL Global Development Group, a diverse group of companies and individual contributors.
 
-PostgreSQL is known for its extensibility, adherence to SQL standards, and support for a wide range of data types, including custom data types. It has a strong community backing and is actively maintained and improved by a group of decicated developers worldwide.
+PostgreSQL is known for its extensibility, adherence to SQL standards, and support for a wide range of data types, including custom data types. It has a strong community backing and is actively maintained and improved by a group of dedicated developers worldwide.
 
-Some of the key feautures of PostgreSQL include:
+Some key features of PostgreSQL include:
 
-1. ACID (Atomicity, Consistency, Isolation, Durability) compliance - P
+1. ACID (Atomicity, Consistency, Isolation, Durability) compliance - PostgreSQL ensures that transactions are processed reliably and maintains data integrity even in the event of crashes or hardware failures.
+
+2. Support for complex data types - PostgreSQL supports various data types, including arrays, hstore (a key-value store), JSON, XML, as well as user-defined data types.
+
+3. Extensibility - PostgreSQL allows users to create custom functions, operators, and data types, making it highly adaptable to specific project requirements.
+
+4. Concurrency Control - PostgreSQL uses a multiversion concurrency control (MVCC) mechanism to ensure that multiple users can access the same database without compromising data integrity or locking. This ensures high performance, data consistency, and scalability.
+
+5. Spatial Data Support - PostgreSQL, with the PostGIS extension, supports spatial data and provides functions for analyzing and processing geographic objects, enabling the development of geospatial queries and analysis.
+
+These features, along with its open-source nature, make PostgreSQL a popular choice for various applications, from small-scale web apps to large-scale enterprises and web applications.
+
+<hr />
+
+The skeuomorphic representation of the database is a stack of disks:
+
+<img src="./assets/skeuomorphic_database_representation.png" alt="skeuomorphic representation of database" width="500px" />
+
+<hr />
+
+## ACID Compliance
 
 ## Definitions
 
@@ -973,6 +993,10 @@ conclusions, and supporting decision-making.
 
 Advanced Data Types - Data types that are not supported by all RDBMS. Examples include arrays, JSON, and XML.
 
+ACID-Compliant - A set of properties that guarantee that database transactions are processed reliably. ACID stands for Atomicity, Consistency, Isolation, and Durability.
+
+Transactions - A set of operations that are executed as a single unit. Transactions ensure that data is processed reliably and that data integrity is maintained even in the event of crashes or hardware failures.
+
 <hr />
 
 ## Vocabulary -
@@ -982,3 +1006,9 @@ Advanced Data Types - Data types that are not supported by all RDBMS. Examples i
 <strong>Pivotal</strong> - Of crucial importance in relation to the development or success of something else.
 
 <strong>Schema</strong> - A representation of a plan or theory in the form of an outline or model.
+
+<strong>Skeuomorphism</strong> - An object or feature that imitates the design of a similar artifact made from another material.
+
+## In-Depth Exploration: Key Questions and Insights
+
+What is skeuomorphism?
