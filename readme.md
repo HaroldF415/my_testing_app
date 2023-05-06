@@ -971,6 +971,20 @@ The skeuomorphic representation of the database is a stack of disks:
 
 ## ACID Compliance
 
+- Atomicity - All operations in a transaction must succeed for the transaction to be considered successful. If any operation fails, the entire transaction fails, and the database is left unchanged.
+
+- Consistency - The database must remain in a consistent state before and after the transaction. This means that any data written to the database must be valid according to all defined rules, including constraints, cascades, triggers, and any combination thereof.
+
+- Isolation - Transactions must be isolated from each other until they are complete. This means that transactions cannot interfere with each other while they are running. For example, if two transactions are running concurrently, one transaction cannot read data that is being modified by the other transaction until it is complete.
+
+- Durability - Once a transaction is complete, its effects are permanent. This means that even if the database crashes or the system fails, the changes made by the transaction will not be lost.
+
+ <br/>
+
+In the field of Computer Science, ACID (Atomicity, Consistency, Isolation, Durability) represents a crucial set of properties for database transactions, ensuring data validity despite potential errors, power failures, and other unexpected issues. Within the context of databases, a series of operations that meet the ACID properties is regarded as a single logical operation on the data, referred to as a transaction. An example of this would be transferring funds from one bank account to another, which may involve multiple changes, such as debiting one account and crediting another, yet still considered a single transaction.
+
+Andreas Reuter and Theo Härder coined the term ACID in 1983, building upon Jim Gray's earlier work, which outlined atomicity, consistency, and durability, but did not include isolation, when describing the transaction concept. These four properties serve as the main guarantees of the transaction paradigm and have significantly influenced numerous aspects of the database system development.
+
 ## Definitions
 
 Data Management - The process of ingesting, storing, organizing, and maintaining data created and collected by an organization.
