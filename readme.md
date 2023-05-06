@@ -985,6 +985,32 @@ In the field of Computer Science, ACID (Atomicity, Consistency, Isolation, Durab
 
 Andreas Reuter and Theo Härder coined the term ACID in 1983, building upon Jim Gray's earlier work, which outlined atomicity, consistency, and durability, but did not include isolation, when describing the transaction concept. These four properties serve as the main guarantees of the transaction paradigm and have significantly influenced numerous aspects of the database system development.
 
+<br/>
+
+## Transaction Processing
+
+In the field of Computer Science, transaction processing refers to the division of information processing into distinct, non-divisible operations known as transactions. A transaction must either be completely successful or entirely fail; partial completion is not an option.
+
+For instance, when purchasing a book from an online bookstore, you exhange money (in the form of credit) for the book. If your credit card is valid, a series of inter connected operations ensure that you receive the book and the bookstore receives your payment. However, if a single operation within the series fails, the whole transaction fails - you won't get the book, and the bookstore won't get your money. The technology responsible for maintaining the balance and predictability of these transactions is known as transaction processing. Transactions guarantee that data-oriented resources are only updated permanently if all operations within the transactional unit are successfully completed. By consolidating a set of related operations into a unit that either entirely succeeds or fails, error recovery can be simplified, and applications can be made more reliable.
+
+Transaction processing systems comprise computer hardware and software that host transaction-oriented applications, executing the routine transactions necessary for conducting business. Examples of such systems include those managing sales order entries, airline reservations, payroll, employee records, manufacturing, and shipping.
+
+Although most transaction processing today is interactive, the term is often used interchangeably with online transaction processing (OLTP), which is the processing of transactions by a computer system in real-time. OLTP is characterized by a large number of short online transactions (INSERT, UPDATE, DELETE). The main emphasis for OLTP systems is put on very fast query processing, maintaining data integrity in multi-access environments, and an effectiveness measured by a number of transactions per second. In OLTP database there is detailed and current data, and schema used to store transactional databases is the entity model (usually 3NF).
+
+## The 3NF entity model
+
+The 3NF, or Third Normal Form, is a database schema design approach in the field of relational database normalization. The primary goal of normalization is to reduce redundancy and dependency of data by organizing the fields and tables of a relational database. The process improves the storage efficiency, maintainability, and data integrity of a database.
+
+Third Normal Form (3NF) is achieved when a database design meets the following criteria:
+
+1. It is in Second Normal Form (2NF) - This means that the database is already in First Normal Form (1NF), with no repeating groups and all attributes being atomic, and that it meets the criteria for 2NF, where all non-key attributes are fully functional dependent on the primary key.
+
+2. Elimination of Transitive Dependencies - In 3NF, no non-key attribute should depend transitively on the primary key. A transitive dependency occurs when a non-key attribute depends on another non-key attribute, which in turn depends on the primary key. To achieve 3NF, these transitive dependencies should not be removed by creating separate tables and establishing proper relationships between them.
+
+Applying 3NF in the context of databases, including PostgreSQL, helps ensure data consistency and maintainability. By minimizing data redundancy and dependency, you can reduce the potential for anomalies during `INSERT`, `UPDATE`, and `DELETE` operations. This, in turn, enhances data integrety and makes the database more efficient in terms of storage and query performance.
+
+In full-stack development, relational databases ofteb play a vital role in storing and managing data for web applications. By utilizing a well-designed #NF entity model, developers can create a robust and efficient database schema that supports the application's requirements. This results in a better-performing web application, with improved data integrity and maintainability.
+
 ## Definitions
 
 Data Management - The process of ingesting, storing, organizing, and maintaining data created and collected by an organization.
@@ -1011,6 +1037,8 @@ ACID-Compliant - A set of properties that guarantee that database transactions a
 
 Transactions - A set of operations that are executed as a single unit. Transactions ensure that data is processed reliably and that data integrity is maintained even in the event of crashes or hardware failures.
 
+Relational Database - A database that stores data in a structured format, using tables with rows and columns.
+
 <hr />
 
 ## Vocabulary -
@@ -1023,6 +1051,12 @@ Transactions - A set of operations that are executed as a single unit. Transacti
 
 <strong>Skeuomorphism</strong> - An object or feature that imitates the design of a similar artifact made from another material.
 
+<strong>Normalization</strong> - The process of organizing data in a database. This includes creating tables and establishing relationships between those tables according to rules designed both to protect the data and to make the database more flexible by eliminating redundancy and inconsistent dependency.
+
+<strong>Transitively</strong> - characterized by having or containing a direct object. This means that the action of the verb is being done to something or someone. For example, in the sentence “She baked cookies,” the verb is “baked” and the direct object is “cookies.” The action of baking is being done to the cookies. In the context of databases transitively means that a non-key attribute depends on another non-key attribute. For example, if the attribute “city” depends on the attribute “state,” and the attribute “state” depends on the attribute “country,” then “city” depends transitively on “country.”
+
 ## In-Depth Exploration: Key Questions and Insights
 
 What is skeuomorphism?
+
+What is relational database normalization?
