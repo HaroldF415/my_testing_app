@@ -840,6 +840,7 @@ Some popular Relational Database Management Systems (RDBMS) that use SQL include
 Each of these RDBMS have their own unique features and advantages, making them suitable for different applications and enviroments. In this course, we will be using PostgreSQL.
 
 <br/>
+
 Below is a table that summarizes some key features of the RDBMS mentioned above. Please note that this table is not exhaustive, and that the features listed are not mutually exclusive. Each RDBMS has its own unique features and advantages, making it suitable for different applications and environments.
 
 <table>
@@ -924,6 +925,32 @@ Please note that the specifics mentioned in the table are just a few examples. E
 
 <hr />
 
+While Google Sheets can hold hundreds or thousands of records, it isn't designed to hold millions or billions of records, like those found in massive databases ( for example, a database containing all the users of Facebook ). Spreadsheet applications like Google Sheets or Microsoft Excel are great for organizing and analyzing relatively small amounts of data, but they lack the performance, scalability, and advanced features needed to manage large-scale datasets.
+
+Databases, especially relational databases, are built to efficiently handle large-scale data storage and management. They use a schema to define the structure of the data, and they can create relationships between different data sets (tables), enabling us to organize and link data in a structured way. These relationships, known as foreign key constraints, allow us to perform powerful operations, such as joining tables, filtering, and aggregating data from multiple sources.
+
+In addition, databases offer several other advantages over spreadsheets, including:
+
+1. Concurrency Control - Databses can handle multiple users accessing and updating data simultaneously, without compromising the integrity of the data.
+
+2. Data Integrity - Databases can enforce data integrity constraints, such as data types, uniqueness, and foreign key relationships, to ensure that the data is accurate and consistent.
+
+3. Security - Databases provide robust access controls and security mechanisms, protecting sensitive data from unauthorized access or manipulation.
+
+4. Backup and Recovery - Databases offer built-in tools for data backup and revovery, ensuring data safety and minimizing the risk of data loss.
+
+5. Query Optimization - Databases use advanced algorithms and indexing techniques to optimize query performance, enabling fast data retrieval even with complex queries and large data sets.
+
+Our instructors have advised us that in this program we will be using PostgreSQL, a powerful open-source relational database management system (RDBMS). PostgreSQL is a popular choice for many applications, including web and mobile apps, data analytics, and geospatial applications. It is also highly extensible, with support for advanced data types, custom functions, and procedural languages.
+
+PostgreSQL has its roots in the University of California, Berkeley. It is a successor to the the Ingres database, which was developed at Berkeley in the 1970s. PostgreSQL was developed as a separate project, starting in 1982, under the name "Postgres." It was later renamed to "PostgreSQL" to emphasize its support for SQL. PostgreSQL is now maintained by the PostgreSQL Global Development Group, a diverse group of companies and individual contributors.
+
+PostgreSQL is known for its extensibility, adherence to SQL standards, and support for a wide range of data types, including custom data types. It has a strong community backing and is actively maintained and improved by a group of decicated developers worldwide.
+
+Some of the key feautures of PostgreSQL include:
+
+1. ACID (Atomicity, Consistency, Isolation, Durability) compliance - P
+
 ## Definitions
 
 Data Management - The process of ingesting, storing, organizing, and maintaining data created and collected by an organization.
@@ -953,3 +980,5 @@ Advanced Data Types - Data types that are not supported by all RDBMS. Examples i
 <strong>Concurrent</strong> - Existing, happening, or done at the same time.
 
 <strong>Pivotal</strong> - Of crucial importance in relation to the development or success of something else.
+
+<strong>Schema</strong> - A representation of a plan or theory in the form of an outline or model.
