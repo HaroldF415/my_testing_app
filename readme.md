@@ -804,3 +804,152 @@ With `Express.js`, we can name our files and folders whatever we want. However, 
 - Update data in a table.
 - Delete data from a table.
 - Bonus: Limit, Sort, and Aggregate data.
+
+<hr/>
+
+## What is a Database?
+
+A database is an organized collection of data that is stored and accessd electronically.
+
+In class we have been creating CRUD apps, so far we've been hard-coding the data to get started. We can make temporary changes to this data, but the changes would disappear when we restart the server.
+
+In class we've discussed that we need data in our database to stay put even after we restart the server. We need a way to store data permanently. We need an actual working database. Which will allow us to store and access our data.
+
+Databases are essential tools that enable us to store, manage, and retrive data in an organized and efficient manner. They can be hosted on a single computer or distributed across multiple computers (servers), depending on the needs of the organization and the scale of data management.
+
+One of the key features of databases is their ability to handle concurrent access by multiple users. This functionality allows for simultaneous data retrieval, modification, and storage by different individuals, ensuring smooth and efficient operations within an organization.
+
+Databases are critical components in various sectors, including finance, healthcare, retail, and technology, as they facilitate the management of vast amounts of data and streamline complex processes. With the growing importance of data-driven decision making, databases play a pivotal role in driving sucess of businesses and organizations worldwide.
+
+There are indeed numerous types of databases available, with relational databases being one of the most common. Relational databases store data in a structured format, using tables with rows and columns, similar to Excel or Google Spreadsheets. This structure allows for easy organization and retrieval of information (data), as well as the establishment of relationships between different data sets.
+
+To interact with relational databeses, we will use SQL ( Structured Query Language ), a powerful coding language specifically designed for managing and querying data in these databases. SQL enables users to create, read, update, and delete data, as well as perform complex data manipulation and analysis.
+
+Some popular Relational Database Management Systems (RDBMS) that use SQL include:
+
+1. MySQL - Open-source RDBMS that is widely used in web applications, offering high performance, flexibility, and reliability.
+
+2. Oracle - A commercial RDBMS that is commonly used in large enterprises, offering high performance, scalability, and security.
+
+3. SQL Server - A Microsoft RDBMS that is commonly used in Windows environments, that provides comprehensive data management and integration services. It is also available on Linux.
+
+4. SQLite - A lightweight, open-source RDBMS that is commonly used in mobile and embedded applications, offering high performance and reliability. Mostly used for small-scale projects.
+
+5. PostgreSQL - An open-source RDBMS that is known for its extensibility, adherence to SQL standards, and support for advanced data types.
+
+Each of these RDBMS have their own unique features and advantages, making them suitable for different applications and enviroments. In this course, we will be using PostgreSQL.
+
+<br/>
+Below is a table that summarizes some key features of the RDBMS mentioned above. Please note that this table is not exhaustive, and that the features listed are not mutually exclusive. Each RDBMS has its own unique features and advantages, making it suitable for different applications and environments.
+
+<table>
+  <tr>
+    <th>RDBMS</th>
+    <th>Open Source</th>
+    <th>Good for Web Apps</th>
+    <th>Good for Large Enterprises</th>
+    <th>Good for Mobile Apps</th>
+    <th>Good for Small-scale Projects</th>
+    <th>Known for</th>
+    <th>Additional Specifics</th>
+  </tr>
+  <tr>
+    <td rowspan="2">MySQL</td>
+    <td rowspan="2">✅</td>
+    <td rowspan="2">✅</td>
+    <td rowspan="2">✅</td>
+    <td rowspan="2">✅</td>
+    <td rowspan="2">✅</td>
+    <td rowspan="2">High performance, flexibility, reliability</td>
+    <td>- Extensive support for JSON data</td>
+  </tr>
+  <tr>
+    <td>- Replication and partitioning support</td>
+  </tr>
+  <tr>
+    <td rowspan="2">Oracle</td>
+    <td rowspan="2">❌</td>
+    <td rowspan="2">❌</td>
+    <td rowspan="2">✅</td>
+    <td rowspan="2">❌</td>
+    <td rowspan="2">❌</td>
+    <td rowspan="2">Scalability, robustness, advanced features</td>
+    <td>- Advanced security features (e.g., data encryption, auditing)</td>
+  </tr>
+  <tr>
+    <td>- Support for PL/SQL (Procedural Language for SQL)</td>
+  </tr>
+  <tr>
+    <td rowspan="2">SQL Server</td>
+    <td rowspan="2">❌</td>
+    <td rowspan="2">✅</td>
+    <td rowspan="2">✅</td>
+    <td rowspan="2">❌</td>
+    <td rowspan="2">❌</td>
+    <td rowspan="2">Comprehensive data management, integration</td>
+    <td>- Integration with other Microsoft services and tools (e.g., Azure, Power BI)</td>
+  </tr>
+  <tr>
+    <td>- Support for T-SQL (Transact-SQL)</td>
+  </tr>
+  <tr>
+    <td rowspan="2">SQLite</td>
+    <td rowspan="2">✅</td>
+    <td rowspan="2">❌</td>
+    <td rowspan="2">❌</td>
+    <td rowspan="2">✅</td>
+    <td rowspan="2">✅</td>
+    <td rowspan="2">Lightweight, serverless, self-contained</td>
+    <td>- Serverless and zero-configuration operation</td>
+  </tr>
+  <tr>
+    <td>- Cross-platform compatibility</td>
+  </tr>
+  <tr>
+    <td rowspan="2">PostgreSQL</td>
+    <td rowspan="2">✅</td>
+    <td rowspan="2">✅</td>
+    <td rowspan="2">✅</td>
+    <td rowspan="2">❌</td>
+    <td rowspan="2">✅</td>
+    <td rowspan="2">Extensibility, SQL standards, data types</td>
+    <td>- Support for custom data types and operators</td>
+  </tr>
+  <tr>
+    <td>- Extensive indexing options (e.g., B-trees, Hash, GIN, SP-GiST, GiST)</td>
+  </tr>
+</table>
+
+Please note that the specifics mentioned in the table are just a few examples. Each RDBMS has many more features and capabilities that can be relevant depending on the use case and requirements.
+
+<hr />
+
+## Definitions
+
+Data Management - The process of ingesting, storing, organizing, and maintaining data created and collected by an organization.
+
+Data-Driven Decision Making - The process of making organizational decisions based on actual data
+rather than intuition or observation alone.
+
+Concurrent Access - The ability of multiple users to access a piece of data at the same time.
+
+Relational Database - A database that stores data in a structured format, using tables with rows and
+columns.
+
+Data Sets - A collection of related data that is stored in a database. Data Manipulation - The process of changing data in a database. This includes inserting, updating, and deleting data. It also includes sorting, filtering, and
+aggregating data.
+
+Data manipulation is often referred to as CRUD (Create, Read, Update, Delete).
+
+Data Analysis - The process of inspecting, cleaning, transforming, and modeling data with the goal of discovering useful information, informing
+conclusions, and supporting decision-making.
+
+Advanced Data Types - Data types that are not supported by all RDBMS. Examples include arrays, JSON, and XML.
+
+<hr />
+
+## Vocabulary -
+
+<strong>Concurrent</strong> - Existing, happening, or done at the same time.
+
+<strong>Pivotal</strong> - Of crucial importance in relation to the development or success of something else.
