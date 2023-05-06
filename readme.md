@@ -786,3 +786,21 @@ In our class we will be learning to keep our code organized in two different fol
 ### Pro-Tip
 
 With `Express.js`, we can name our files and folders whatever we want. However, no one will understand how your code is organized with names that don't make sense/are not semantic.
+
+# REMINDER TO FINISH THIS SECTION
+
+<br/>
+
+# Intro to Databases / SQL
+
+## Lesson Objectives
+
+- Define databases and their role in a full-stack application.
+- Introduction to PostgreSQL.
+- Set up and drop (delete) a (sub) database.
+- Create a table, set columns, and drop a table.
+  = Create a row and put it in a table. (insert data)
+- Read data from a table. (query data)
+- Update data in a table.
+- Delete data from a table.
+- Bonus: Limit, Sort, and Aggregate data.
