@@ -1129,6 +1129,111 @@ DROP DATABASE "Pokemon";
 
 ```
 
+To connect to a database, you can use the `\c` or `\connect` command.
+
+```sql
+-- connect to the database "Pokemon"
+\c Pokemon
+
+-- connect to the database "Pokemon"
+\connect Pokemon
+```
+
+<div style="height:50px"></div>
+
+## Data Types
+
+<hr/>
+
+While working with Express and Javascript, we've had the flexibility to store data in arrays and objects with varying data types. Javascript is quite lenient when it comes to handling different data types, such as accepting both <span style="color:purple;">4</span> as a number and `'4'` as a string without any issues.
+
+However, PostgreSQL is stricter and enforces proper data types for the columns within the tables we create. This ensures that our data is consistent and avoids potential issues when querying or maniupulating the data. Here are some of the most common data types used in PostgreSQL:
+
+1. `INTEGER` or `INT` - A whole number, such as `1`, `2`, or `-5`.
+2. `DECIMAL` or `NUMERIC` - represents floating-point numbers, such as `3.14` or `2.71828`.
+3. `BOOLEAN` or `BOOL` - represents a value of `true` or `false`.
+4. `CHARACTER VARYING(n)` or `VARCHAR(n)` - represents a variable-length string with a specified maximum length of `n`. For example, `VARCHAR(255)` can store a string with a maximum length of 255 characters. This is ideal for storing small to moderately-sized text values, such as names or addresses.
+5. `TEXT` - Represents a variable-length string without any maximum length constraint. This is suitable for storing large blocks of text, such as articles or descriptions.
+6. `TIMESTAMP` - represents a specific date and time, including information about the year, month, day, hour, minute, and second. For example, `2021-10-31 12:00:00` represents October 31, 2021 at 12:00 PM.
+
+By using the appropriate data types in PostgreSQL, we can ensure that our data is stored accuratley and consistently, allowing us to build reliable and efficient full-stack web applications.
+
+[EXTRA READING - Hello, I'm Mr. Null](https://www.wired.com/2015/11/null/)
+
+<div style="height:50px"></div>
+
+## Creating a Table
+
+<hr/>
+
+In a database, we can store multiple tables, each designed to hold a specific set of data. For instance, if we are creating a database for a real estate company, one of the tables could be dedicated to houses for sale. In addition to this table, we would have other tables for various aspects of the business, such as buyers, agents, commercial properties, residential properties, and so on. Each table would store data relevant to its respective category, enabling us to organize and manage the information efficiently.
+
+Tables are made up of columns and rows, where columns represent specific attributes, and rows represent individual records. When creating a table, we need to define the column names and their respective data types. Data Types as explained above determine what kind of information can be stored in a particular column, such as numbers, text, dates, or boolean values.
+
+For example, let's consider the table for houses for sale. We could have the following columns:
+
+<table>
+    <tr>
+        <th>Attribute</th>
+        <th>Data Type</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>int</td>
+        <td>A unique identifier for each house, usually an integer value.</td>
+    </tr>
+    <tr>
+        <td>address</td>
+        <td>varchar</td>
+        <td>The street address of the house, stored as a string.</td>
+    </tr>
+    <tr>
+        <td>city</td>
+        <td>varchar</td>
+        <td>The city where the house is located, also stored as a string.</td>
+    </tr>
+    <tr>
+        <td>state</td>
+        <td>varchar</td>
+        <td>The state where the house is located, stored as a string.</td>
+    </tr>
+    <tr>
+        <td>zip_code</td>
+        <td>int</td>
+        <td>The zip code of the house's location, stored as an integer.</td>
+    </tr>
+    <tr>
+        <td>price</td>
+        <td>decimal</td>
+        <td>The asking price of the house, stored as a decimal value to accommodate cents.</td>
+    </tr>
+    <tr>
+        <td>bedrooms</td>
+        <td>int</td>
+        <td>The number of bedrooms in the house, stored as an integer.</td>
+    </tr>
+    <tr>
+        <td>bathrooms</td>
+        <td>decimal</td>
+        <td>The number of bathrooms in the house, stored as a decimal to account for half-baths (e.g., 2.5 bathrooms).</td>
+    </tr>
+    <tr>
+        <td>square_feet</td>
+        <td>int</td>
+        <td>The total square footage of the house, stored as an integer.</td>
+    </tr>
+    <tr>
+        <td>listing_date</td>
+        <td>timestamp</td>
+        <td>The date when the house was listed for sale, stored as a timestamp.</td>
+    </tr>
+</table>
+
+<br/>
+
+With this structure, we can store information about each house for sale in an organized and easily accessible way. We can then use SQL queries to retrieve, update, or delete data from the table as needed. Additionally, we can establish relationships between tables to create more comprehensive and interconnected real estate management system.
+
 <div style="height:50px"></div>
 
 ## Definitions
