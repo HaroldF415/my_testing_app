@@ -805,9 +805,11 @@ With `Express.js`, we can name our files and folders whatever we want. However, 
 - Delete data from a table.
 - Bonus: Limit, Sort, and Aggregate data.
 
-<hr/>
+<div style="height:50px"></div>
 
 ## What is a Database?
+
+<hr/>
 
 A database is an organized collection of data that is stored and accessd electronically.
 
@@ -923,8 +925,6 @@ Below is a table that summarizes some key features of the RDBMS mentioned above.
 
 Please note that the specifics mentioned in the table are just a few examples. Each RDBMS has many more features and capabilities that can be relevant depending on the use case and requirements.
 
-<hr />
-
 While Google Sheets can hold hundreds or thousands of records, it isn't designed to hold millions or billions of records, like those found in massive databases (for example, a database containing all the users of Facebook). Spreadsheet applications like Google Sheets or Microsoft Excel are great for organizing and analyzing relatively small amounts of data, but they lack the performance, scalability, and advanced features needed to manage large-scale datasets.
 
 Databases, especially relational databases, are built to efficiently handle large-scale data storage and management. They use a schema to define the structure of the data and can create relationships between different data sets (tables), enabling the organization and linkage of data in a structured way. These relationships, known as foreign key constraints, allow powerful operations, such as joining tables, filtering, and aggregating data from multiple sources.
@@ -961,15 +961,17 @@ Some key features of PostgreSQL include:
 
 These features, along with its open-source nature, make PostgreSQL a popular choice for various applications, from small-scale web apps to large-scale enterprises and web applications.
 
-<hr />
+<div style="height:50px"></div>
 
 The skeuomorphic representation of the database is a stack of disks:
 
 <img src="./assets/skeuomorphic_database_representation.png" alt="skeuomorphic representation of database" width="500px" />
 
-<hr />
+<div style="height:50px"></div>
 
 ## ACID Compliance
+
+<hr/>
 
 - Atomicity - All operations in a transaction must succeed for the transaction to be considered successful. If any operation fails, the entire transaction fails, and the database is left unchanged.
 
@@ -985,9 +987,11 @@ In the field of Computer Science, ACID (Atomicity, Consistency, Isolation, Durab
 
 Andreas Reuter and Theo Härder coined the term ACID in 1983, building upon Jim Gray's earlier work, which outlined atomicity, consistency, and durability, but did not include isolation, when describing the transaction concept. These four properties serve as the main guarantees of the transaction paradigm and have significantly influenced numerous aspects of the database system development.
 
-<br/>
+<div style="height:50px"></div>
 
 ## Transaction Processing
+
+<hr/>
 
 In the field of Computer Science, transaction processing refers to the division of information processing into distinct, non-divisible operations known as transactions. A transaction must either be completely successful or entirely fail; partial completion is not an option.
 
@@ -997,7 +1001,11 @@ Transaction processing systems comprise computer hardware and software that host
 
 Although most transaction processing today is interactive, the term is often used interchangeably with online transaction processing (OLTP), which is the processing of transactions by a computer system in real-time. OLTP is characterized by a large number of short online transactions (INSERT, UPDATE, DELETE). The main emphasis for OLTP systems is put on very fast query processing, maintaining data integrity in multi-access environments, and an effectiveness measured by a number of transactions per second. In OLTP database there is detailed and current data, and schema used to store transactional databases is the entity model (usually 3NF).
 
+<div style="height:50px"></div>
+
 ## The 3NF entity model
+
+<hr/>
 
 The 3NF, or Third Normal Form, is a database schema design approach in the field of relational database normalization. The primary goal of normalization is to reduce redundancy and dependency of data by organizing the fields and tables of a relational database. The process improves the storage efficiency, maintainability, and data integrity of a database.
 
@@ -1011,7 +1019,121 @@ Applying 3NF in the context of databases, including PostgreSQL, helps ensure dat
 
 In full-stack development, relational databases ofteb play a vital role in storing and managing data for web applications. By utilizing a well-designed #NF entity model, developers can create a robust and efficient database schema that supports the application's requirements. This results in a better-performing web application, with improved data integrity and maintainability.
 
+<div style="height:50px"></div>
+
+## Getting Started with PostgreSQL
+
+<hr/>
+
+After installing PostgreSQL, you can access the `psql` command-line interface by running the following command in your terminal:
+
+```bash
+psql
+```
+
+You should see:
+
+```bash
+psql (15.2)
+Type "help" for help.
+
+postgres=#
+```
+
+<div style="height:50px"></div>
+
+## SQL Syntax
+
+<hr/>
+
+Even though `keywords` in SQL are not case-sensitive, the convention is to capitalize them. Like so:
+
+```sql
+-- CORRECT
+SELECT * FROM users;
+
+-- INCORRECT
+select * from users;
+```
+
+<strong>NOTE</strong>: Comments start with two dashes `--` and end with a line break.
+
+Postgres in the terminal can give you some clues as to what it is doing, but it may be difficult to spot for new users.
+
+A prompt ready to go is preceded by `=#`.
+
+```bash
+postgres=#
+```
+
+Semi-colons are required to end your statement. If you forget your semi-colon, the prompt will drop the following line and appear as a `-#`. To fix this you can either end your statement with a semi-colon or hit `CTRL + C` to cancel the statement.
+
+```bash
+
+postgres=# SELECT * FROM users
+postgres-# ;
+
+```
+
+Another thing that can happen is that you get a lot of rows of data back, and you may not want to scroll through them all. To cancel the query, hit `CTRL + C`. You will see a semicolon at the bottom of the screen. This means that you are in a view. To get out of the view, press `q` again.
+
+```bash
+postgres=# SELECT * FROM users;
+ id | first_name | last_name | email | password | created_at | updated_at
+----+------------+-----------+-------+----------+------------+------------
+001 | John       | Doe       |       |          |            |
+(2 rows)
+:
+```
+
+<br/>
+<br/>
+
+## Creating a Database
+
+<hr/>
+
+PostgreSQL is a DATABASE. when you run the application, you can create `sub-databases` that allow you to work on different projects. For example you can create a database for a blog, and another for a forum. These `sub-databases` are called `schemas`. You can create a schema with the `CREATE DATABASE` command.
+
+```sql
+CREATE DATABASE pokemon;
+```
+
+<strong>Note</strong>: Databases that are created with a capital letter or spaces must be wrapped in double quotes.
+
+```sql
+CREATE DATABASE "Pokemon";
+```
+
+Otherwise you will get an error.
+
+```bash
+-- INCORRECT
+postgres=# CREATE DATABASE Pokemon;
+ERROR:  syntax error at or near "Pokemon"
+
+-- CORRECT
+postgres=# CREATE DATABASE "Pokemon";
+CREATE DATABASE
+```
+
+Next we will `CREATE` a `DATABASE` and immediately `DROP` (delete) it.
+
+```sql
+
+-- create the sub-database "Pokemon"
+CREATE DATABASE "Pokemon";
+
+-- drop the sub-database "Pokemon"
+DROP DATABASE "Pokemon";
+
+```
+
+<div style="height:50px"></div>
+
 ## Definitions
+
+<hr/>
 
 Data Management - The process of ingesting, storing, organizing, and maintaining data created and collected by an organization.
 
@@ -1039,9 +1161,11 @@ Transactions - A set of operations that are executed as a single unit. Transacti
 
 Relational Database - A database that stores data in a structured format, using tables with rows and columns.
 
-<hr />
+<div style="height:50px"></div>
 
-## Vocabulary -
+## Vocabulary
+
+<hr/>
 
 <strong>Concurrent</strong> - Existing, happening, or done at the same time.
 
@@ -1055,7 +1179,11 @@ Relational Database - A database that stores data in a structured format, using 
 
 <strong>Transitively</strong> - characterized by having or containing a direct object. This means that the action of the verb is being done to something or someone. For example, in the sentence “She baked cookies,” the verb is “baked” and the direct object is “cookies.” The action of baking is being done to the cookies. In the context of databases transitively means that a non-key attribute depends on another non-key attribute. For example, if the attribute “city” depends on the attribute “state,” and the attribute “state” depends on the attribute “country,” then “city” depends transitively on “country.”
 
+<div style="height:50px"></div>
+
 ## In-Depth Exploration: Key Questions and Insights
+
+<hr/>
 
 What is skeuomorphism?
 
