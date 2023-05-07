@@ -809,7 +809,7 @@ With `Express.js`, we can name our files and folders whatever we want. However, 
 
 ## What is a Database?
 
-<hr/>
+<br/>
 
 A database is an organized collection of data that is stored and accessd electronically.
 
@@ -971,7 +971,7 @@ The skeuomorphic representation of the database is a stack of disks:
 
 ## ACID Compliance
 
-<hr/>
+<br/>
 
 - Atomicity - All operations in a transaction must succeed for the transaction to be considered successful. If any operation fails, the entire transaction fails, and the database is left unchanged.
 
@@ -991,7 +991,7 @@ Andreas Reuter and Theo Härder coined the term ACID in 1983, building upon Jim 
 
 ## Transaction Processing
 
-<hr/>
+<br/>
 
 In the field of Computer Science, transaction processing refers to the division of information processing into distinct, non-divisible operations known as transactions. A transaction must either be completely successful or entirely fail; partial completion is not an option.
 
@@ -1005,7 +1005,7 @@ Although most transaction processing today is interactive, the term is often use
 
 ## The 3NF entity model
 
-<hr/>
+<br/>
 
 The 3NF, or Third Normal Form, is a database schema design approach in the field of relational database normalization. The primary goal of normalization is to reduce redundancy and dependency of data by organizing the fields and tables of a relational database. The process improves the storage efficiency, maintainability, and data integrity of a database.
 
@@ -1023,7 +1023,7 @@ In full-stack development, relational databases ofteb play a vital role in stori
 
 ## Getting Started with PostgreSQL
 
-<hr/>
+<br/>
 
 After installing PostgreSQL, you can access the `psql` command-line interface by running the following command in your terminal:
 
@@ -1044,7 +1044,7 @@ postgres=#
 
 ## SQL Syntax
 
-<hr/>
+<br/>
 
 Even though `keywords` in SQL are not case-sensitive, the convention is to capitalize them. Like so:
 
@@ -1091,7 +1091,7 @@ postgres=# SELECT * FROM users;
 
 ## Creating a Database
 
-<hr/>
+<br/>
 
 PostgreSQL is a DATABASE. when you run the application, you can create `sub-databases` that allow you to work on different projects. For example you can create a database for a blog, and another for a forum. These `sub-databases` are called `schemas`. You can create a schema with the `CREATE DATABASE` command.
 
@@ -1143,7 +1143,7 @@ To connect to a database, you can use the `\c` or `\connect` command.
 
 ## Data Types
 
-<hr/>
+<br/>
 
 While working with Express and Javascript, we've had the flexibility to store data in arrays and objects with varying data types. Javascript is quite lenient when it comes to handling different data types, such as accepting both <span style="color:purple;">4</span> as a number and `'4'` as a string without any issues.
 
@@ -1164,7 +1164,7 @@ By using the appropriate data types in PostgreSQL, we can ensure that our data i
 
 ## Creating a Table
 
-<hr/>
+<br/>
 
 In a database, we can store multiple tables, each designed to hold a specific set of data. For instance, if we are creating a database for a real estate company, one of the tables could be dedicated to houses for sale. In addition to this table, we would have other tables for various aspects of the business, such as buyers, agents, commercial properties, residential properties, and so on. Each table would store data relevant to its respective category, enabling us to organize and manage the information efficiently.
 
@@ -1238,7 +1238,7 @@ With this structure, we can store information about each house for sale in an or
 
 ## Definitions
 
-<hr/>
+<br/>
 
 Data Management - The process of ingesting, storing, organizing, and maintaining data created and collected by an organization.
 
@@ -1270,7 +1270,7 @@ Relational Database - A database that stores data in a structured format, using 
 
 ## Vocabulary
 
-<hr/>
+<br/>
 
 <strong>Concurrent</strong> - Existing, happening, or done at the same time.
 
@@ -1288,7 +1288,7 @@ Relational Database - A database that stores data in a structured format, using 
 
 ## In-Depth Exploration: Key Questions and Insights
 
-<hr/>
+<br/>
 
 What is skeuomorphism?
 
